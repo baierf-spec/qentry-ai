@@ -1,0 +1,33 @@
+{
+  "name": "qentry",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Qentry.ai — a virtual walk-in line via QR code",
+  "type": "module",
+  "scripts": {
+    "dev": "npm run build && wrangler dev",
+    "dev:ui": "vite",
+    "build": "vite build",
+    "typecheck": "tsc -p tsconfig.json",
+    "db:migrate:local": "wrangler d1 migrations apply qentry --local",
+    "db:migrate:remote": "wrangler d1 migrations apply qentry --remote",
+    "deploy": "npm run build && wrangler deploy"
+  },
+  "dependencies": {
+    "hono": "^4.13.14",
+    "qrcode": "^1.5.4",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router-dom": "^7.18.5"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261028.1",
+    "@types/qrcode": "^1.5.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5",
+    "wrangler": "^4.154.0"
+  }
+}

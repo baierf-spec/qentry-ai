@@ -1,0 +1,72 @@
+.lp { background: var(--paper); }
+.lp-wrap { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+.lp-nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding-block: 22px; }
+@media (max-width: 720px) { .lp-nav nav a.navlink { display: none; } .lp-hero-art { min-height: 480px; } }
+.lp-nav nav { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; font-size: 15px; font-weight: 500; }
+.lp-nav nav a { text-decoration: none; }
+.lp-hero { display: flex; flex-wrap: wrap; gap: 56px; align-items: center; padding-block: 48px 96px; }
+.lp-hero-copy { flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 30px; }
+.lp-hero h1 { font-size: clamp(54px, 8.2vw, 116px); line-height: .9; letter-spacing: -0.05em; text-wrap: balance; }
+.lp-hero p.lead { font-size: 20px; line-height: 1.55; color: var(--muted); max-width: 520px; text-wrap: pretty; }
+.lp-eyebrow { font-family: var(--mono); font-size: 13px; letter-spacing: .08em; color: var(--cobalt); text-transform: uppercase; }
+.lp-hero-art { flex: 1 1 460px; min-width: 0; position: relative; min-height: 520px; }
+.lp-board { position: absolute; top: 0; left: 0; right: 40px; background: var(--ink); color: #fff; border-radius: 22px; padding: 26px 28px 30px; display: flex; flex-direction: column; gap: 20px; }
+.lp-board .flap { perspective: 600px; }
+.lp-board-row { display: flex; justify-content: space-between; padding: 12px 0; border-top: 1px solid var(--ink-3); font-size: 15px; }
+.lp-ticket-wrap { position: absolute; right: 0; bottom: 0; width: 250px; }
+.lp-ticket { position: relative; border-radius: 18px; box-shadow: 0 18px 40px rgba(18,18,18,.18); transform: rotate(3deg); background: #fff; transition: background .5s var(--e2); }
+.lp-ticket.called { background: var(--yellow); }
+.lp-ticket .notch { position: absolute; top: 118px; width: 22px; height: 22px; border-radius: 999px; background: var(--paper); }
+.lp-ticket .top { padding: 22px 22px 18px; display: flex; flex-direction: column; gap: 6px; border-bottom: 2px dashed #CFCBBF; height: 129px; }
+.lp-ticket .bottom { padding: 18px 22px 22px; display: flex; flex-direction: column; gap: 4px; }
+.lp-sticker { position: absolute; left: -8px; bottom: 26px; width: 118px; height: 118px; border-radius: 999px; background: var(--cobalt); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transform: rotate(-10deg); font-family: var(--display); font-weight: 800; font-size: 17px; line-height: 1.05; }
+.lp-marquee { background: var(--ink); color: var(--yellow); overflow: hidden; padding: 18px 0; }
+.lp-marquee-track { display: flex; width: max-content; animation: marquee 28s linear infinite; }
+.lp-marquee-track > div { display: flex; gap: 48px; padding-right: 48px; font-family: var(--mono); font-weight: 500; font-size: 18px; letter-spacing: .04em; white-space: nowrap; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+.lp-section { padding-block: 120px 104px; }
+.lp-h2 { font-size: clamp(40px, 5.5vw, 72px); line-height: .95; letter-spacing: -0.04em; text-wrap: balance; }
+.lp-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px; }
+.lp-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); border-top: 2px solid var(--ink); }
+.lp-steps > div { padding: 28px 28px 8px 0; display: flex; flex-direction: column; gap: 14px; }
+.lp-steps h3 { font-family: var(--display); font-weight: 700; font-size: 28px; letter-spacing: -0.02em; }
+.lp-steps p, .lp-feat p { font-size: 17px; line-height: 1.6; color: var(--muted); }
+.lp-feats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); gap: 18px; }
+.lp-feat { background: #fff; border: 1px solid #E2DFD6; border-radius: 24px; overflow: hidden; display: flex; flex-direction: column; }
+.lp-feat .vis { height: 240px; position: relative; overflow: hidden; }
+.lp-feat .txt { padding: 26px; display: flex; flex-direction: column; gap: 8px; }
+.lp-feat h3 { font-family: var(--display); font-weight: 700; font-size: 24px; letter-spacing: -0.02em; }
+.lp-feat p { font-size: 16px; }
+
+.rv { opacity: 0; transform: translateY(24px) scale(.985); filter: blur(6px); transition: transform .9s var(--e) var(--d, 0s), opacity .6s var(--e2) var(--d, 0s), filter .7s var(--e2) var(--d, 0s); }
+.up { opacity: 0; transform: translateY(10px); filter: blur(4px); transition: transform 1.05s var(--e) var(--d, 0s), opacity .75s var(--e2) var(--d, 0s), filter .75s var(--e2) var(--d, 0s); }
+.in .rv, .in .up { opacity: 1; transform: none; filter: none; }
+.anim { animation-play-state: paused !important; }
+.in .anim { animation-play-state: running !important; }
+
+.typing { display: inline-block; vertical-align: bottom; overflow: hidden; white-space: nowrap; width: 0; border-right: 2px solid #fff; animation: type 7s steps(37, end) infinite, caret 1s step-end infinite; }
+@keyframes type { 0% { width: 0 } 45% { width: 37ch } 82% { width: 37ch } 95% { width: 0 } 100% { width: 0 } }
+@keyframes caret { 0%, 49% { border-color: #fff } 50%, 100% { border-color: transparent } }
+.chipa { background: #fff; color: var(--ink); font-size: 13px; font-weight: 600; padding: 8px 12px; border-radius: 999px; opacity: 0; animation: chip 7s var(--e) infinite; }
+@keyframes chip { 0%, 47% { opacity: 0; transform: translateY(8px); filter: blur(4px) } 53%, 82% { opacity: 1; transform: none; filter: none } 88%, 100% { opacity: 0; filter: blur(2px) } }
+.stackrow { position: absolute; left: 0; right: 0; top: 0; height: 46px; display: flex; align-items: center; gap: 14px; padding: 0 14px; border-radius: 12px; background: var(--ink-2); font-size: 15px; opacity: 0; animation: stack 10s var(--e) infinite; }
+@keyframes stack { 0% { transform: translateY(-56px); opacity: 0; filter: blur(4px) } 6% { transform: translateY(0); opacity: 1; filter: none } 20% { transform: translateY(0) } 26% { transform: translateY(56px) } 40% { transform: translateY(56px) } 46% { transform: translateY(112px) } 60% { transform: translateY(112px) } 66% { transform: translateY(168px); opacity: 1 } 80% { transform: translateY(168px); opacity: 1 } 86% { transform: translateY(224px); opacity: 0 } 100% { transform: translateY(224px); opacity: 0 } }
+.eqbar { flex: 1; background: var(--cobalt); border-radius: 4px; transform-origin: 50% 100%; animation: eq .8s var(--io) infinite alternate; }
+@keyframes eq { from { transform: scaleY(.25) } to { transform: scaleY(1) } }
+.langline { position: absolute; inset: 0; opacity: 0; font-family: var(--display); font-weight: 700; font-size: 24px; line-height: 1.15; animation: lang 9s var(--e2) infinite; }
+@keyframes lang { 0% { opacity: 0; filter: blur(4px); transform: translateY(6px) } 5% { opacity: 1; filter: none; transform: none } 29% { opacity: 1; filter: none; transform: none } 34% { opacity: 0; filter: blur(4px); transform: translateY(-6px) } 100% { opacity: 0 } }
+.notif { position: absolute; left: 10px; right: 10px; top: 10px; border-radius: 16px; padding: 10px 12px; display: flex; gap: 10px; align-items: center; box-shadow: 0 6px 18px rgba(18,18,18,.12); transform: translateY(-90px); opacity: 0; animation: notif 7s var(--e) infinite; font-size: 12px; line-height: 1.3; }
+@keyframes notif { 0% { transform: translateY(-90px); opacity: 0; filter: blur(4px) } 9% { transform: none; opacity: 1; filter: none } 42% { transform: none; opacity: 1 } 50% { transform: translateY(-90px); opacity: 0 } 100% { transform: translateY(-90px); opacity: 0 } }
+.bar { flex: 1; border-radius: 6px 6px 2px 2px; transform-origin: 50% 100%; animation: breathe 3s var(--io) infinite; }
+@keyframes breathe { 0%, 100% { transform: scaleY(1) } 50% { transform: scaleY(.9) } }
+.ring { animation: ring 8s var(--io) infinite; }
+@keyframes ring { 0% { stroke-dashoffset: 0 } 80% { stroke-dashoffset: 327 } 100% { stroke-dashoffset: 0 } }
+
+.lp-price { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)); gap: 20px; }
+.lp-price > div { border-radius: 24px; padding: 36px; display: flex; flex-direction: column; gap: 26px; }
+.lp-price ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 16px; }
+.lp-price li { display: flex; gap: 10px; }
+.lp-faq > div { padding: 24px 0; display: flex; flex-direction: column; gap: 8px; border-top: 1px solid #CFCBBF; }
+.lp-faq > div:first-child { border-top: 2px solid var(--ink); }
+.lp-faq h3 { font-size: 20px; font-weight: 600; }
+.lp-faq p { font-size: 17px; line-height: 1.6; color: var(--muted); }
